@@ -32,6 +32,21 @@
             transform: translateY(-5px);
             box-shadow: 0 12px 25px rgba(0,0,0,0.4);
         }
+        
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+            transition: all 0.2s ease;
+        }
+        
+        .close-btn:hover {
+            color: #ffcc00;
+            transform: scale(1.2);
+        }
 
         .promo-banner .highlight {
             font-size: 1.4em;
@@ -340,7 +355,8 @@
     </style>
 </head>
 <body>
-    <div class="promo-banner">
+    <div class="promo-banner" id="promo-banner">
+        <span class="close-btn" id="close-banner">&times;</span>
         🔥 SPECIAL OFFER
         <span class="highlight">PDF Forms for only $5</span>
         24-Hour Turnaround Guaranteed
@@ -610,6 +626,14 @@
             <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path>
         </svg>
     </a>
+    
+    <script>
+        // Close banner functionality
+        document.getElementById('close-banner').addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent the banner click event from firing
+            document.getElementById('promo-banner').style.display = 'none';
+        });
+    </script>
     
     <script>
         // Back to top button functionality
